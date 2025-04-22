@@ -110,7 +110,7 @@
               <label class="subtext" for="colleagues">Agency Employees</label>
               <input id="colleagues" placeholder="80" name="colleagues" type="text" required>
   
-              <button class="subtext" type="submit">SUBMIT</button>
+              <button id="" class="subtext" type="submit">SUBMIT</button>
           </form>
       </details>
   </section>
@@ -186,15 +186,6 @@ if ('fetch' in window && 'DOMParser' in window) {
     
       document.querySelector(".loader");
       loader.classList.remove("show");
-      
-      const successMessage = document.getElementById('succes');
-      if (successMessage) {
-        successMessage.style.display = 'block';
-
-        setTimeout(() => {
-          successMessage.style.display = 'none';
-        }, 3000);
-      }
     });
   }
 </script>

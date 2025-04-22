@@ -67,73 +67,26 @@ app.get('/leden', async function (request, response) {
   const apiResponse = await fetch(apiUrl);
   const apiResponseJSON = await apiResponse.json();
 
-  // Haal extra leden op (indien nodig)
-  const extraLedenFetch = await fetch('https://fdnd-agency.directus.app/items/dda_messages?filter={%22text%22:%20{%22_contains%22:%22Branco_%22}}');
-  const extraLedenJSON = await extraLedenFetch.json();
-
-  let extraLeden = [];
-  if (extraLedenJSON.data.length > 0) {
-    extraLeden = extraLedenJSON.data.map((lid) => {
-      return {
-        title: lid.text.replace('Branco_', ''),
-        address: lid.for,
-        colleagues: lid.from
-      };
-    });
-  }
-
-  // Combineer de data van de agencies met de extra leden
-  let leden = [...apiResponseJSON.data, ...extraLeden];
-
   // Render de data naar de view
-  response.render('leden.liquid', { leden });
+  response.render('leden.liquid', {leden: apiResponseJSON.data});
 });
 
-
-// lid toevoegen
-
-// app.post('/leden/nieuw/toevoegen/', async function (request, response) {
-//   const res = await fetch('https://fdnd-agency.directus.app/items/dda_messages/', {
-//     method: 'POST',
-//     body: JSON.stringify({
-//       text: "Branco_" + request.body.title,
-//       for: request.body.address,
-//       from: request.body.colleagues,
-//     }),
-//     headers: {
-//       'Content-Type': 'application/json;charset=UTF-8'
-//     }
-//   });
-// });
 
 app.post('/leden/nieuw/toevoegen/', async function (request, response) {
+  await fetch('https://fdnd-agency.directus.app/items/dda_agencies', {
+        method: 'POST',
+        body: JSON.stringify({
+          title: request.body.title,
+          address: request.body.address,
+          colleagues: request.body.colleagues,
+        }),
+        headers: {
+          'Content-Type': 'application/json;charset=UTF-8'
+        }
+      });
+      response.redirect(303, '/leden?success=Lid is toegevoegd!');
+})
 
-  // Haal de gegevens uit de request body (title, address, colleagues)
-  const { title, address, colleagues } = request.body;
-
-  // Maak de juiste tekst op basis van de titel uit de body
-  const text = "Branco_" + title;
-
-  // Haal de Directus API response op met de nodige gegevens
-  const apiResponse = await fetch('https://fdnd-agency.directus.app/items/dda_messages/', {
-    method: 'POST',
-    body: JSON.stringify({
-      text: text,
-      for: address,
-      from: colleagues,
-    }),
-    headers: {
-      'Content-Type': 'application/json;charset=UTF-8'
-    }
-  });
-
-  // Log de API-respons om te controleren of het goed gaat
-  const apiResponseJSON = await apiResponse.json();
-  console.log(apiResponseJSON);
-
-  // Verzend een redirect na het succesvol toevoegen van de gegevens
-  response.redirect(303, '/leden?success=Lid is toegevoegd!');
-});
 
 // Stel het poortnummer in waar Express op moet gaan luisteren
 // Lokaal is dit poort 8000; als deze applicatie ergens gehost wordt, waarschijnlijk poort 80
