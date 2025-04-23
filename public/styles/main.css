@@ -282,37 +282,6 @@ footer section{
     border-bottom: 1px solid black;
 }
 
-.infinite-logo-container{
-    width: 100vw;
-    overflow: hidden;
-    margin: 0;
-}
-
-.infinite-logo-bar{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    animation: scroll 10s linear infinite;
-}
-
-@keyframes scroll{
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(100%);
-    }
-}
-
-.infinite-logo-bar > img{
-    width: 5em;
-    height: 5em;
-    border: none;
-    border: 1px solid var(--black);
-    padding: 1em;
-    border-collapse: collapse;
-}
-
 .footer-logo-section{
     display: flex;
     flex-direction: column;
@@ -360,17 +329,65 @@ footer section{
     font-weight: bold;
 }
 
-
-/* succes */
-#succes {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    color: rgb(0, 0, 0);
-    background-color: lightgreen;
-    padding: 10px;
-    border-radius: 5px;
-    z-index: 9999;
-    display: none;
+.footer-socialmedia-section{
+    margin-left: 2em;
+    ul{
+        display: flex;
+        flex-direction: row;
+        padding: 0;
+        gap: 1em;
+        text-decoration: underline;
+    }
 }
-  
+
+  /* https://www.youtube.com/watch?v=nAjR0Oj0J8E */
+
+@keyframes slide {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+.logos{
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+}
+
+.logos::before,
+.logos::after{
+    position: absolute;
+    top: 0;
+    width: 5em;
+    height: 100%; 
+    content: "";
+    z-index: 2;
+}
+
+.logos::before{
+    background: linear-gradient(to left, rgba(255, 255, 255, 0), rgb(255, 255, 255)); 
+    left: 0; 
+}
+
+.logos::after{
+    background: linear-gradient(to right, rgba(255, 255, 255, 0), rgb(255, 255, 255)); 
+   right: 0;
+}
+
+.logos-slide{
+    display: inline-block;    
+    animation: 35s slide infinite linear;
+}
+
+.logos-slide img{
+    height: 8em;
+    border: solid black 1px;
+    padding: 1em;
+}
+
+.logos:hover .logos-slide {
+    animation-play-state: paused;
+}
