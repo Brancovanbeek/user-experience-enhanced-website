@@ -1,11 +1,12 @@
-{% render 'partials/head.liquid' %}
+{% assign pageTitle = "Onze leden - Dutch Digital Agencies" %}
+{% render 'partials/head.liquid', pageTitle: pageTitle %}
 
 <main>
 
     <section class="page-title-container">
         <section class="page-title">
             <a class="subtext" href="/">
-                <img src="/img/arrow-left.svg" alt="">TERUG NAAR HOME
+                <img src="/img/arrow-left.svg" alt="arrow left svg">TERUG NAAR HOME
             </a>
             <h1>ONZE LEDEN</h1>
         </section>
@@ -55,7 +56,7 @@
                     <option value="250+">250+</option>
                 </select>  
                 <span class="select-button-icon">
-                    <img src="/img/plus.svg" alt="">
+                    <img src="/img/plus.svg" alt="plus svg">
                 </span>      
             </section>
 
@@ -68,11 +69,11 @@
                     <option value="colleagues">Aantal werknemers</option>
                 </select>
                 <span class="select-button-icon">
-                    <img src="/img/plus.svg" alt="">
+                    <img src="/img/plus.svg" alt="plus svg">
                 </span>    
             </section>   
 
-            <button class="subtext" id="filter-submit-button"   type="submit">SUBMIT</button>
+            <button class="subtext" id="filter-submit-button" type="submit">SUBMIT</button>
         </form>
     </section>
 
@@ -84,7 +85,7 @@
         <p class="subtext">{{ lid.address | split: " " | last | upcase }}</p>
         <p class="subtext">{{ lid.colleagues | upcase }} WERKNEMER{% if lid.colleagues > 1%}S{% endif %}</p>
         <a href="/leden/lid/{{ lid.id }}">DETAILS
-            <img src="/img/arrow.svg" alt="">
+            <img src="/img/arrow.svg" alt="arrow svg">
         </a>
       </section>
     {% endfor %}
@@ -110,9 +111,6 @@
           </form>
       </details>
   </section>
-
-  
-  
 
 </main>
 

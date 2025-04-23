@@ -1,4 +1,5 @@
-{% render 'partials/head.liquid' %}
+{% assign pageTitle = lidDetails.title | append: " - Dutch Digital Agencies" %}
+{% render 'partials/head.liquid', pageTitle: pageTitle %}
 
 <main>
     <section class="page-title">
