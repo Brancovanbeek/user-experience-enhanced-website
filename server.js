@@ -73,6 +73,7 @@ app.get('/leden', async function (request, response) {
 
 
 app.post('/leden/nieuw/toevoegen/', async function (request, response) {
+  console.log("ontvangen body:", request.body)
   await fetch('https://fdnd-agency.directus.app/items/dda_agencies', {
         method: 'POST',
         body: JSON.stringify({

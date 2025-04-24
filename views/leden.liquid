@@ -91,13 +91,13 @@
     {% endfor %}
     </section>
 
-    <div class="loader"></div>
+    
 
 
     <section class="lid-toevoegen-container">
       <details class="subtext">
           <summary>Lid toevoegen</summary>
-          <form class="lid-toevoegen-form" action="/leden/nieuw/toevoegen" method="POST" data-enhanced="form">
+          <form class="lid-toevoegen-form" action="/leden/nieuw/toevoegen" method="post" data-enhanced="form">
               <label class="subtext" for="title">Agency Name</label>
               <input id="title" placeholder="Funda" name="title" type="text" required>
   
@@ -107,7 +107,11 @@
               <label class="subtext" for="colleagues">Agency Employees</label>
               <input id="colleagues" placeholder="80" name="colleagues" type="text" required>
   
-              <button id="" class="subtext" type="submit">SUBMIT</button>
+        
+            <button type="submit" class="subtext">
+                <span class="btn-label">SUBMIT</span>
+            </button>
+              
           </form>
       </details>
   </section>
@@ -122,8 +126,6 @@
 // We maken hieronder aannames over wat de browser ondersteunt
 // Dus laten we deze eerst testen met Feature Detection
 // https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Testing/Feature_detection
-if ('fetch' in window && 'DOMParser' in window) {
-
   // Als er ergens op de pagina een formulier wordt gesubmit..
   // (We maken hier gebruik van Event Delegation)
   document.addEventListener('submit', async function(event) {
@@ -143,19 +145,17 @@ if ('fetch' in window && 'DOMParser' in window) {
     // Let op: hiermee overschrijven we de default Loading state van de browser...
     event.preventDefault();
 
-    form.classList.add("submitting");
+    let formData = new FormData(form)
 
-    const loader = document.querySelector('.loader');
-    loader.classList.add('show');
-
+    form.classList.add('loader');
     
       // Doe een fetch naar de server, net als hoe de browser dit normaal zou doen
       // Gebruik daarvoor het action en method attribuut van het originele formulier
       // Inclusief alle formulierelementen
-    const response = await fetch(form.action, {
-      method: form.method,
-      body: new URLSearchParams(new FormData(form))
-    });
+      const response = await fetch(form.action, {
+        method: form.method,
+        body: new URLSearchParams(formData)
+      });
 
       // Converteer de serverrespons naar JSON
       const responseText = await response.text();
@@ -164,23 +164,30 @@ if ('fetch' in window && 'DOMParser' in window) {
       // Parse de nieuwe HTML en maak hiervan een nieuw Document Object Model in het geheugen
       const parser = new DOMParser();
       const responseDOM = parser.parseFromString(responseText, 'text/html');
-  
+      
+      console.log(responseDOM);
+      
       // Zoek in die nieuwe DOM onze nieuwe state op, die we via Liquid hebben klaargemaakt
       // We gebruiken hiervoor het data-enhanced attribuut, zodat we weten waar we naar moeten zoeken
       // (Hierdoor kunnen we ook meerdere formulieren op dezelfde pagina gebruiken)
       const newState = responseDOM.querySelector('[data-enhanced="' + form.getAttribute('data-enhanced') + '"]');
+      const nieuwLid = responseDOM.querySelector(".leden-card:last-of-type")
   
-      // Overschrijf ons formulier met de nieuwe HTML
-      // Hier wil je waarschijnlijk de Loading state vervangen door een Success state
-      form.outerHTML = newState.outerHTML;
+    form.classList.remove('loader');
+
+
+    if (form.action.includes("/leden/nieuw/toevoegen/")){
+        newState.classList.add('succes')
+    };
+
+    // Overschrijf ons formulier met de nieuwe HTML
+    // Hier wil je waarschijnlijk de Loading state vervangen door een Success state
+    form.outerHTML = newState.outerHTML;
+    let nieuwLeden = document.querySelector(".leden-card-grid")
+    nieuwLeden.insertAdjacentHTML("beforeend", nieuwLid.outerHTML);
   
-      // Reset het formulier na succes
-      form.reset();
-    
-      document.querySelector(".loader");
-      loader.classList.remove("show");
     });
-  }
+
 </script>
 
 {% render 'partials/foot.liquid' %}
