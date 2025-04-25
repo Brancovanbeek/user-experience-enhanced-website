@@ -21,10 +21,13 @@
         </section>
         
         <form class="filters" method="get" action="/leden">
+        <form class="filters" method="get" action="/leden" aria-label="Leden filter en sorteren formulier">
             <!-- Provincie filter -->
             <section class="provincie-filter">
                 <select class="subtext" name="provincie" id="provincie">
                     <option value="">PROVINCIES</option>
+                <select class="subtext" name="provincie" id="provincie" aria-label="Selecteer een provincie">
+                    <option value="" disabled selected>Provincie</option>
                     <option value="Noord-Holland">Noord-Holland</option>
                     <option value="Zuid-Holland">Zuid-Holland</option>
                     <option value="Groningen">Groningen</option>
@@ -48,6 +51,8 @@
             <section class="omvang-filter">
                 <select class="subtext" name="omvang" id="omvang">
                     <option value="">OMVANG</option>
+                <select class="subtext" name="omvang" id="omvang" aria-label="Selecteer een omvang">
+                    <option value="" disabled selected>Omvang</option>
                     <option value="1-9">1-9</option>
                     <option value="10-24">10-24</option>
                     <option value="25-49">25-49</option>
@@ -64,6 +69,8 @@
             <section class="sorteren-filter">
                 <select class="subtext" name="sorteren" id="sorteren">
                     <option value="">SORTEREN</option>
+                <select class="subtext" name="sorteren" id="sorteren" aria-label="Selecteer een sorteer optie">
+                    <option value="" disabled selected>Sorteer opties</option>
                     <option value="az">A-Z</option>
                     <option value="za">Z-A</option>
                     <option value="colleagues">Aantal werknemers</option>
