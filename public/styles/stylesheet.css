@@ -13,6 +13,7 @@ h1 {
     font-weight: 600;
     line-height: clamp(48px, 6vw, 96px);
     letter-spacing: -0.04em;
+    text-transform: uppercase;
 }
 
 h2 {
@@ -75,4 +76,5 @@ a{
     font-size: clamp(16px, 2vw, 18px);
     font-weight: 700;
     line-height: 24px;
+    text-transform: uppercase;
 }

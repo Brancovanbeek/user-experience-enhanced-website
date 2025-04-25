@@ -6,9 +6,9 @@
     <section class="page-title-container">
         <section class="page-title">
             <a class="subtext" href="/">
-                <img src="/img/arrow-left.svg" alt="arrow left svg">TERUG NAAR HOME
+                <img src="/img/arrow-left.svg" alt="">terug naar home
             </a>
-            <h1>ONZE LEDEN</h1>
+            <h1>onze leden</h1>
         </section>
         
         <section class="page-title-content">
@@ -20,12 +20,9 @@
             <input type="text" placeholder="Zoek een bureau..." id="search" name="search">
         </section>
         
-        <form class="filters" method="get" action="/leden">
         <form class="filters" method="get" action="/leden" aria-label="Leden filter en sorteren formulier">
             <!-- Provincie filter -->
             <section class="provincie-filter">
-                <select class="subtext" name="provincie" id="provincie">
-                    <option value="">PROVINCIES</option>
                 <select class="subtext" name="provincie" id="provincie" aria-label="Selecteer een provincie">
                     <option value="" disabled selected>Provincie</option>
                     <option value="Noord-Holland">Noord-Holland</option>
@@ -49,8 +46,6 @@
 
             <!-- Omvang filter -->
             <section class="omvang-filter">
-                <select class="subtext" name="omvang" id="omvang">
-                    <option value="">OMVANG</option>
                 <select class="subtext" name="omvang" id="omvang" aria-label="Selecteer een omvang">
                     <option value="" disabled selected>Omvang</option>
                     <option value="1-9">1-9</option>
@@ -61,14 +56,12 @@
                     <option value="250+">250+</option>
                 </select>  
                 <span class="select-button-icon">
-                    <img src="/img/plus.svg" alt="plus svg">
+                    <img src="/img/plus.svg" alt="">
                 </span>      
             </section>
 
             <!-- Sorteren filter -->
             <section class="sorteren-filter">
-                <select class="subtext" name="sorteren" id="sorteren">
-                    <option value="">SORTEREN</option>
                 <select class="subtext" name="sorteren" id="sorteren" aria-label="Selecteer een sorteer optie">
                     <option value="" disabled selected>Sorteer opties</option>
                     <option value="az">A-Z</option>
@@ -76,11 +69,11 @@
                     <option value="colleagues">Aantal werknemers</option>
                 </select>
                 <span class="select-button-icon">
-                    <img src="/img/plus.svg" alt="plus svg">
+                    <img src="/img/plus.svg" alt="">
                 </span>    
             </section>   
 
-            <button class="subtext" id="filter-submit-button" type="submit">SUBMIT</button>
+            <button class="subtext" id="filter-submit-button" type="submit">submit</button>
         </form>
     </section>
 
@@ -91,34 +84,29 @@
         <h3>{{ lid.title | upcase }}</h3>
         <p class="subtext">{{ lid.address | split: " " | last | upcase }}</p>
         <p class="subtext">{{ lid.colleagues | upcase }} WERKNEMER{% if lid.colleagues > 1%}S{% endif %}</p>
-        <a href="/leden/lid/{{ lid.id }}">DETAILS
-            <img src="/img/arrow.svg" alt="arrow svg">
+        <a href="/leden/lid/{{ lid.id }}">details
+            <img src="/img/arrow.svg" alt="">
         </a>
       </section>
     {% endfor %}
     </section>
 
-    
-
-
     <section class="lid-toevoegen-container">
       <details class="subtext">
           <summary>Lid toevoegen</summary>
           <form class="lid-toevoegen-form" action="/leden/nieuw/toevoegen" method="post" data-enhanced="form">
-              <label class="subtext" for="title">Agency Name</label>
-              <input id="title" placeholder="Funda" name="title" type="text" required>
+                <label class="subtext" for="title">Agency Name</label>
+                <input id="title" placeholder="Funda" name="title" type="text" required>
+    
+                <label class="subtext" for="address">Agency Location</label>
+                <input id="address" placeholder="Amsterdam" name="address" type="text" required>
+    
+                <label class="subtext" for="colleagues">Agency Employees</label>
+                <input id="colleagues" placeholder="80" name="colleagues" type="text" required>
   
-              <label class="subtext" for="address">Agency Location</label>
-              <input id="address" placeholder="Amsterdam" name="address" type="text" required>
-  
-              <label class="subtext" for="colleagues">Agency Employees</label>
-              <input id="colleagues" placeholder="80" name="colleagues" type="text" required>
-  
-        
-            <button type="submit" class="subtext">
-                <span class="btn-label">SUBMIT</span>
-            </button>
-              
+                <button type="submit" class="subtext">
+                    <span class="btn-label">SUBMIT</span>
+                </button>
           </form>
       </details>
   </section>
@@ -200,8 +188,7 @@
         popUp.classList.remove('show');
     }, 3000);
 
-  
-    });
+});
 
 </script>
 
