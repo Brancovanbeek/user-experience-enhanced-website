@@ -379,3 +379,22 @@ footer section{
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
+
+.pop-up{
+    border: solid rgb(3, 210, 3) 1px;
+    background-color: rgb(131, 255, 131);
+    color: green;
+    width: fit-content;
+    padding: 0 1em 0 1em;
+    border-radius: 10px;
+    position: fixed;
+    margin-top: 1em;
+    top: 0;
+    margin-left: 33%;
+    text-transform: uppercase;
+    display: none;
+}
+
+.show{
+    display: block;
+}

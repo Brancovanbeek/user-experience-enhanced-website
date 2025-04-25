@@ -116,6 +116,11 @@
       </details>
   </section>
 
+  <div class="pop-up" id="pop-up">
+    <p>Lid is toegevoegd!</p>
+  </div>  
+
+
 </main>
 
 
@@ -123,12 +128,12 @@
 <script src="/scripts/script.js"></script>
 
 <script type="module">
-// We maken hieronder aannames over wat de browser ondersteunt
-// Dus laten we deze eerst testen met Feature Detection
-// https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Testing/Feature_detection
-  // Als er ergens op de pagina een formulier wordt gesubmit..
-  // (We maken hier gebruik van Event Delegation)
-  document.addEventListener('submit', async function(event) {
+    // We maken hieronder aannames over wat de browser ondersteunt
+    // Dus laten we deze eerst testen met Feature Detection
+    // https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Testing/Feature_detection
+    // Als er ergens op de pagina een formulier wordt gesubmit..
+    // (We maken hier gebruik van Event Delegation)
+    document.addEventListener('submit', async function(event) {
 
     // Hou in een variabele bij welk formulier dat was
     const form = event.target;
@@ -149,42 +154,45 @@
 
     form.classList.add('loader');
     
-      // Doe een fetch naar de server, net als hoe de browser dit normaal zou doen
-      // Gebruik daarvoor het action en method attribuut van het originele formulier
-      // Inclusief alle formulierelementen
-      const response = await fetch(form.action, {
-        method: form.method,
-        body: new URLSearchParams(formData)
-      });
+    // Doe een fetch naar de server, net als hoe de browser dit normaal zou doen
+    // Gebruik daarvoor het action en method attribuut van het originele formulier
+    // Inclusief alle formulierelementen
+    const response = await fetch(form.action, {
+    method: form.method,
+    body: new URLSearchParams(formData)
+    });
 
-      // Converteer de serverrespons naar JSON
-      const responseText = await response.text();
+    // Converteer de serverrespons naar JSON
+    const responseText = await response.text();
 
-      // Normaal zou de browser die HTML parsen en weergeven, maar daar moeten we nu zelf iets mee
-      // Parse de nieuwe HTML en maak hiervan een nieuw Document Object Model in het geheugen
-      const parser = new DOMParser();
-      const responseDOM = parser.parseFromString(responseText, 'text/html');
-      
-      console.log(responseDOM);
-      
-      // Zoek in die nieuwe DOM onze nieuwe state op, die we via Liquid hebben klaargemaakt
-      // We gebruiken hiervoor het data-enhanced attribuut, zodat we weten waar we naar moeten zoeken
-      // (Hierdoor kunnen we ook meerdere formulieren op dezelfde pagina gebruiken)
-      const newState = responseDOM.querySelector('[data-enhanced="' + form.getAttribute('data-enhanced') + '"]');
-      const nieuwLid = responseDOM.querySelector(".leden-card:last-of-type")
+    // Normaal zou de browser die HTML parsen en weergeven, maar daar moeten we nu zelf iets mee
+    // Parse de nieuwe HTML en maak hiervan een nieuw Document Object Model in het geheugen
+    const parser = new DOMParser();
+    const responseDOM = parser.parseFromString(responseText, 'text/html');
+    
+    console.log(responseDOM);
+    
+    // Zoek in die nieuwe DOM onze nieuwe state op, die we via Liquid hebben klaargemaakt
+    // We gebruiken hiervoor het data-enhanced attribuut, zodat we weten waar we naar moeten zoeken
+    // (Hierdoor kunnen we ook meerdere formulieren op dezelfde pagina gebruiken)
+    const nieuwLid = responseDOM.querySelector(".leden-card:last-of-type")
   
     form.classList.remove('loader');
 
-
-    if (form.action.includes("/leden/nieuw/toevoegen/")){
-        newState.classList.add('succes')
-    };
-
     // Overschrijf ons formulier met de nieuwe HTML
     // Hier wil je waarschijnlijk de Loading state vervangen door een Success state
-    form.outerHTML = newState.outerHTML;
+    // form.outerHTML = newState.outerHTML;
     let nieuwLeden = document.querySelector(".leden-card-grid")
     nieuwLeden.insertAdjacentHTML("beforeend", nieuwLid.outerHTML);
+
+
+    let popUp = document.querySelector('.pop-up')
+    popUp.classList.add('show');
+
+    setTimeout(() => {
+        popUp.classList.remove('show');
+    }, 3000);
+
   
     });
 
