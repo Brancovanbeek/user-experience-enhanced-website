@@ -251,7 +251,7 @@ footer ul li{
     list-style: none;
 }
 
-footer section{
+.footer-logo-section, .footer-navigation-list-section, .footer-info-section{
     border-bottom: 1px solid black;
 }
 
