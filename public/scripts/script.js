@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const leden = document.querySelectorAll('.leden-card-grid section');
 
             leden.forEach(lid => {
-                const title = lid.querySelector('h3').textContent.toLowerCase();
+                const title = lid.querySelector('h2').textContent.toLowerCase();
                 lid.style.display = title.includes(searchValue) ? '' : 'none';
             });
         });
