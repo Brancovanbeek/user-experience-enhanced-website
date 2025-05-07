@@ -458,9 +458,10 @@ header{
     width: 75%;
     position: fixed;
     top: 0;
-    right: -75%;
+    right: 0;
     z-index: 1000;
     justify-content: space-between;
+    display: none;
 
     .menu-close-link{
         display: flex;
@@ -514,5 +515,6 @@ header{
   }
   
 #menu:target {
-	right: 0;
+	display: block;
+}
 }
