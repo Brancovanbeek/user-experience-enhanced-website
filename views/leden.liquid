@@ -20,6 +20,8 @@
             <input type="text" placeholder="Zoek een bureau..." id="search" name="search">
         </section>
         
+
+        <form class="filters" method="get" action="/leden">
             <section class="provincie-filter">
                 <label class="visually-hidden" for="provincie">Selecteer een provincie</label>
                 <select class="subtext" name="provincie" id="provincie">
@@ -76,19 +78,19 @@
         </form>
     </section>
 
-    <section class="leden-card-grid">
+    <ul class="leden-card-grid">
     {% for lid in leden %}
-      <section class="leden-card">
+      <li class="leden-card">
         <img loading="lazy"  alt="{{ lid.title }}" src="https://fdnd-agency.directus.app/assets/{{ lid.photo }}">
-        <h2>{{ lid.title | upcase }}</h2>
+        <h2 style="--name: vn{{ lid.id }};" class="lid-title">{{ lid.title | upcase }}</h2>
         <p class="subtext">{{ lid.address | split: " " | last | upcase }}</p>
         <p class="subtext">{{ lid.colleagues | upcase }} WERKNEMER{% if lid.colleagues > 1%}S{% endif %}</p>
         <a href="/leden/lid/{{ lid.id }}">details
             <img src="/img/arrow.svg" alt="">
         </a>
-      </section>
+      </li>
     {% endfor %}
-    </section>
+    </ul>
 
     <section class="lid-toevoegen-container">
       <details class="subtext">

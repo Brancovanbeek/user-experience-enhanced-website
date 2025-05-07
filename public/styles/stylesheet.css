@@ -1,3 +1,10 @@
+@view-transition{
+    navigation: auto;
+}
+
+.lid-title { view-transition-name: var(--name); }
+.lid-details-title { view-transition-name: var(--name); }
+
 /* Kleuren */
 :root {
     --black: #222226;

@@ -1,7 +1,7 @@
 {% assign pageTitle = lidDetails.title | append: " - Dutch Digital Agencies" %}
 {% render 'partials/head.liquid', pageTitle: pageTitle %}
 
-<main>
+<main class="lid-details-main">
     <section class="page-title">
         <a class="subtext" href="/leden">
             <img src="/img/arrow-left.svg" alt="">terug naar home
@@ -9,8 +9,8 @@
     </section>
 
     {% if lidDetails %}
-        <section class="lid-info">
-            <h1>{{ lidDetails.title }}</h1>
+        <section class="lid-info" >
+            <h1 style="--name: vn{{ lidDetails.id }};" class="lid-details-title">{{ lidDetails.title }}</h1>
             <img class="lid-image" src="https://fdnd-agency.directus.app/assets/{{ lidDetails.photo }}" alt="{{ lidDetails.title }}">
             <p>{{ lidDetails.description }}</p>
         </section>
@@ -36,8 +36,8 @@
         <p class="text">{{addressDetails[0] }} {{addressDetails[1] }}<br>
         {{ addressDetails[2] }} {{ addressDetails[3] }} {{ addressDetails[4] }} {{ addressDetails[5] }}
         </p>
-        <p class="text">{{ lidDetails.phone }}</p>
-        <p class="text">{{ lidDetails.email }}</p>
+        <p class="text"><a href="{{ lidDetails.phone }}">{{ lidDetails.phone }}</p></a>
+        <p class="text"><a href="mailto:{{ lidDetails.email }}">{{ lidDetails.email }}</p></a>
     </section>
 </main>
 {% render 'partials/foot.liquid' %}
