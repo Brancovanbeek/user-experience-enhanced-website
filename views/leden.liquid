@@ -20,10 +20,9 @@
             <input type="text" placeholder="Zoek een bureau..." id="search" name="search">
         </section>
         
-        <form class="filters" method="get" action="/leden" aria-label="Leden filter en sorteren formulier">
-            <!-- Provincie filter -->
             <section class="provincie-filter">
-                <select class="subtext" name="provincie" id="provincie" aria-label="Selecteer een provincie">
+                <label class="visually-hidden" for="provincie">Selecteer een provincie</label>
+                <select class="subtext" name="provincie" id="provincie">
                     <option value="">Provincie</option>
                     <option value="Noord-Holland">Noord-Holland</option>
                     <option value="Zuid-Holland">Zuid-Holland</option>
@@ -44,9 +43,9 @@
                 </span>                 
             </section>
 
-            <!-- Omvang filter -->
             <section class="omvang-filter">
-                <select class="subtext" name="omvang" id="omvang" aria-label="Selecteer een omvang">
+                <label class="visually-hidden" for="omvang">Selecteer een omvang</label>
+                <select class="subtext" name="omvang" id="omvang">
                     <option value="">Omvang</option>
                     <option value="1-9">1-9</option>
                     <option value="10-24">10-24</option>
@@ -60,9 +59,9 @@
                 </span>      
             </section>
 
-            <!-- Sorteren filter -->
             <section class="sorteren-filter">
-                <select class="subtext" name="sorteren" id="sorteren" aria-label="Selecteer een sorteer optie">
+                <label class="visually-hidden" for="sorteren">Selecteer een sorteer optie</label>
+                <select class="subtext" name="sorteren" id="sorteren">
                     <option value="">Sorteer opties</option>
                     <option value="az">A-Z</option>
                     <option value="za">Z-A</option>
@@ -114,7 +113,6 @@
   <div class="pop-up" id="pop-up">
     <p>Lid is toegevoegd!</p>
   </div>  
-
 
 </main>
 
