@@ -6,7 +6,7 @@
     <section class="page-title-container">
         <section class="page-title">
             <a class="subtext" href="/">
-                <img src="/img/arrow-left.svg" alt="">terug naar home
+                <img src="/img/arrow-left.svg" alt="" width="15" height="15">terug naar home
             </a>
             <h1>onze leden</h1>
         </section>
@@ -41,7 +41,7 @@
                 </select>  
 
                 <span class="select-button-icon">
-                    <img src="/img/plus.svg" alt="">
+                    <img src="/img/plus.svg" alt="" width="12" height="12">
                 </span>                 
             </section>
 
@@ -57,7 +57,7 @@
                     <option value="250+">250+</option>
                 </select>  
                 <span class="select-button-icon">
-                    <img src="/img/plus.svg" alt="">
+                    <img src="/img/plus.svg" alt="" width="12" height="12">
                 </span>      
             </section>
 
@@ -70,7 +70,7 @@
                     <option value="colleagues">Aantal werknemers</option>
                 </select>
                 <span class="select-button-icon">
-                    <img src="/img/plus.svg" alt="">
+                    <img src="/img/plus.svg" alt="" width="12" height="12">
                 </span>    
             </section>   
 
@@ -80,13 +80,13 @@
 
     <ul class="leden-card-grid">
     {% for lid in leden %}
-      <li class="leden-card">
-        <img loading="lazy"  alt="{{ lid.title }}" src="https://fdnd-agency.directus.app/assets/{{ lid.photo }}">
-        <h2 style="--name: vn{{ lid.id }};" class="lid-title">{{ lid.title | upcase }}</h2>
+      <li class="leden-card" style="--name: vn{{ lid.id }};">
+        <img loading="lazy" alt="{{ lid.title }}" src="https://fdnd-agency.directus.app/assets/{{ lid.photo }}" width="300" height="200">
+        <h2 class="lid-title">{{ lid.title | upcase }}</h2>
         <p class="subtext">{{ lid.address | split: " " | last | upcase }}</p>
         <p class="subtext">{{ lid.colleagues | upcase }} WERKNEMER{% if lid.colleagues > 1%}S{% endif %}</p>
         <a href="/leden/lid/{{ lid.id }}">details
-            <img src="/img/arrow.svg" alt="">
+            <img src="/img/arrow.svg" alt="" width="12" height="12">
         </a>
       </li>
     {% endfor %}

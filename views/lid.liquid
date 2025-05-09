@@ -4,14 +4,14 @@
 <main class="lid-details-main">
     <section class="page-title">
         <a class="subtext" href="/leden">
-            <img src="/img/arrow-left.svg" alt="">terug naar home
+        <img src="/img/arrow-left.svg" alt="" width="16" height="16">terug naar home
         </a>
     </section>
 
     {% if lidDetails %}
         <section class="lid-info" >
             <h1 style="--name: vn{{ lidDetails.id }};" class="lid-details-title">{{ lidDetails.title }}</h1>
-            <img class="lid-image" src="https://fdnd-agency.directus.app/assets/{{ lidDetails.photo }}" alt="{{ lidDetails.title }}">
+            <img class="lid-image" src="https://fdnd-agency.directus.app/assets/{{ lidDetails.photo }}" alt="{{ lidDetails.title }}" width="1000" height="500">
             <p>{{ lidDetails.description }}</p>
         </section>
        

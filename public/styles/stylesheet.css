@@ -2,7 +2,7 @@
     navigation: auto;
 }
 
-.lid-title { view-transition-name: var(--name); }
+.leden-card { view-transition-name: var(--name); }
 .lid-details-title { view-transition-name: var(--name); }
 
 /* Kleuren */
