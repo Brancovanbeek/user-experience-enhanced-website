@@ -544,3 +544,7 @@ header{
 .lid-title{
     width: fit-content;
 }
+
+.nav-open #menu{
+    display: block;
+}

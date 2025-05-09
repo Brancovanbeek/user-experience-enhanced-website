@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
     searchInputs.forEach(search => {
         search.addEventListener('input', function () {
             const searchValue = this.value.toLowerCase();
-            const leden = document.querySelectorAll('.leden-card-grid section');
+            const leden = document.querySelectorAll('.leden-card-grid li');
 
             leden.forEach(lid => {
                 const title = lid.querySelector('h2').textContent.toLowerCase();
@@ -12,5 +12,24 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         });
     });
-});
 
+    const openMenu = document.getElementById('toggle-menu-open');
+
+    openMenu.addEventListener('click', function(event){
+        event.preventDefault();
+
+        const header = document.querySelector('.header');
+        header.classList.toggle('nav-open')
+    })
+
+    const closeMenu = document.getElementById('toggle-menu-close');
+
+    closeMenu.addEventListener('click', function(event){
+        event.preventDefault();
+
+        const header = document.querySelector('.header');
+        header.classList.toggle('nav-open')
+    })
+
+    
+});
