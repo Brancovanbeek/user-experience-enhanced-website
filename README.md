@@ -19,6 +19,11 @@ De website is mobile first gebouwd. Op het kleinste formaat is het een one-colum
 Lighthouse: De pagina scoort 100 punten op alle onderdelen van de lighthouse.
 <img width="580" alt="Image" src="https://github.com/user-attachments/assets/414e150d-62a1-4cc1-9890-471e4bab0638" />
 
+## Ontwerpkeuzes
+-Kleurgebruik: Voor de website gebruik ik alleen maar zwart en wit. De linkjes zijn blauw wat zorgt voor een goede feedforward omdat iedereen dan weet waar je op kunt klikken. De zwart wit kleuren zorgen voor een strakke uitstraling. Het einge kleur komt van de afbeeldingen van de bedrijven.
+-Typografie: ik hou vast aan 2 soorten lettertypes. De typografie heb ik vooraf gestyled in de stylesheet. De groote van de typografie schaalt mee op basis van schermgroote omdat ik clamp heb gebruikt. De koppen zijn vetgedrukt zodat ze extra opvallen. 
+-Consistente UI: De dunne zwarte borders op de website zorgen ervoor dat alles in hokjes te verdelen valt zo weet je precies wat waarbij hoort. Per sectie heb ik een border-top en border-bottom meegegeven om de secties uit elkaar te houden.
+-Branding: het logo van dda staat in de header en in de footer en heeft de zelfde zwart wit style als de rest van de website. Het logo heb ik ook mee laten schalen op basis van schermgroote met clamp zodat hij op elk apparaat goed te zien is.
 ## Gebruik
 Als gebruiker, wil ik een overzicht kunnen zien van alle leden die onder Dutch Digital Agency vallen. Ik zie alvast wat belangrijke informatie en ik kan op een link klikken om meer informatie te lezen over het specifieke bedrijf. Dit is mogelijk door het responsive design wat de leden laat zien in een grid, met snelle informatie over de leden en een mogelijkheid om meer informatie te lezen op de detailpagina.
 
