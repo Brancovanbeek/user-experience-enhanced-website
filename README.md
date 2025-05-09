@@ -18,11 +18,6 @@ De website is mobile first gebouwd. Op het kleinste formaat is het een one-colum
 
 Lighthouse: De pagina scoort 100 punten op alle onderdelen van de lighthouse.
 
-
-## Ontwerp
-
-Ik heb het ontwerp van de huisstijl aangehouden van het Figma bestand. Deze was erg uitgebreid en duidelijk. 
-
 ## Gebruik
 Als gebruiker, wil ik een overzicht kunnen zien van alle leden die onder Dutch Digital Agency vallen. Ik zie alvast wat belangrijke informatie en ik kan op een link klikken om meer informatie te lezen over het specifieke bedrijf. Dit is mogelijk door het responsive design wat de leden laat zien in een grid, met snelle informatie over de leden en een mogelijkheid om meer informatie te lezen op de detailpagina.
 
@@ -31,6 +26,36 @@ Als opdrachtgever wil ik een nieuw lid kunnen toevoegen, zodat mensen up to date
 ## Kenmerken
 
 De website is een dynamische, responsive & mobile first website. Gemaakt met Liquid.JS, Node.JS, JavaScript en CSS. De website is dynamisch door het ophalen van de data uit de database.
+
+Deze spint heb ik verschillende onderdelen gemaakt: 
+
+-Dynamische paginatitel: ik gebruik Liquid om een dynamische titel toe te voegen. Dit is goed voor de duidelijkheid voor de gebruiker. https://github.com/Brancovanbeek/user-experience-enhanced-website/blob/a471a2db6375083beb787dd30b7835aad467e13a/views/partials/head.liquid#L9-L12
+
+-Responsive header met hamburgermenu: ik heb een responisve header gemaakt met op mobile een hamburgermenu die opent en sluit met javascript en zonder javascript. Met javascript door addEventListener en zonder javascipt door :target. 
+https://github.com/Brancovanbeek/user-experience-enhanced-website/blob/a471a2db6375083beb787dd30b7835aad467e13a/views/partials/head.liquid#L15-L50
+
+https://github.com/Brancovanbeek/user-experience-enhanced-website/blob/a471a2db6375083beb787dd30b7835aad467e13a/public/styles/main.css#L492-L557
+https://github.com/Brancovanbeek/user-experience-enhanced-website/blob/a471a2db6375083beb787dd30b7835aad467e13a/public/scripts/script.js#L16-L32
+
+-Oneindige logocarrousel: ik heb een herhalende slide gemaakt met partnerlogo’s. Die doormiddel van een animatie door het beeld beweegt.
+
+https://github.com/Brancovanbeek/user-experience-enhanced-website/blob/a471a2db6375083beb787dd30b7835aad467e13a/views/partials/foot.liquid#L2-L27
+
+https://github.com/Brancovanbeek/user-experience-enhanced-website/blob/a471a2db6375083beb787dd30b7835aad467e13a/public/styles/main.css#L328-L380
+
+
+-Succes message: ik laat een pop-up 3 seconden verschijnen als bevestiging. Dit zorgt voor een betere gebruikerservaring.
+https://github.com/Brancovanbeek/user-experience-enhanced-website/blob/a471a2db6375083beb787dd30b7835aad467e13a/public/styles/main.css#L396-L413
+https://github.com/Brancovanbeek/user-experience-enhanced-website/blob/a471a2db6375083beb787dd30b7835aad467e13a/views/leden.liquid#L115-L117
+
+
+-Loading state: zodra het formulier wordt verstuurd, komt er een loader spinner. Zodra de fetch klaar is, verdwijnt de spinner en zie je het weer normaal.
+https://github.com/Brancovanbeek/user-experience-enhanced-website/blob/a471a2db6375083beb787dd30b7835aad467e13a/public/styles/main.css#L382-L395
+
+-Multi-page transition: ik heb op de namen van de bedrijven op de overzichtspagina en detailspagina een morph effect gezet als je van pagina switcht.
+https://github.com/Brancovanbeek/user-experience-enhanced-website/blob/a471a2db6375083beb787dd30b7835aad467e13a/public/styles/stylesheet.css#L1-L6
+
+
 
 ## Installatie
 
