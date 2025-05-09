@@ -1,8 +1,10 @@
 
 # Enhanced website
-Ontwerp en maak een interactieve website die snel laadt en prettig te gebruiken is.
+## Desktop
+<img width="1510" alt="Scherm­afbeelding 2025-05-09 om 09 51 19" src="https://github.com/user-attachments/assets/6b7a17f4-adba-466e-a1e8-14017ed57593" />
 
-De instructie vind je in: [INSTRUCTIONS.md](https://github.com/fdnd-task/enhanced-website/blob/main/docs/INSTRUCTIONS.md)
+## Mobile
+<img width="572" alt="Scherm­afbeelding 2025-05-09 om 09 51 31" src="https://github.com/user-attachments/assets/a75ee0f2-5a2d-424a-ae3b-3a27a0b7fe1c" />
 
 
 ## Inhoudsopgave
